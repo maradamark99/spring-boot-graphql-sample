@@ -1,0 +1,8 @@
+spring:
+  application:
+    application-name: graphql-test
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/test
+  graphql:
+    graphiql.enabled: true

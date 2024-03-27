@@ -1,0 +1,41 @@
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+input ProductAttributeInput {
+    key: String!
+    value: String    
+}
+
+input ProductInput {
+    name: String!
+    description: String
+    categories: [String]
+    price: Float!
+    attributes: [ProductAttributeInput]
+}
+
+type ProductAttribute {
+    key: String!
+    value: String
+}
+
+type Product {
+    id: ID!
+    name: String!
+    description: String
+    categories: [String]
+    price: Float!
+    attributes: [ProductAttribute]
+}
+
+type Query {
+    allProducts: [Product]
+    productById(id: ID!): Product
+}
+
+type Mutation {
+    saveProduct(product: ProductInput!): Product!
+    deleteProductById(id: ID!): Boolean
+}
